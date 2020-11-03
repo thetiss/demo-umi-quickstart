@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # umi project
 
-通过umi脚手架实现react+dva+umi+antd,本repo有counter,todolist,userdashboard功能，分别放进不同路由
+通过umi脚手架实现react+dva+umi+antd,本repo有counter,todolist,userdashboard功能，分别放进不同路由。
 
 ## Getting Started
 
@@ -16,7 +15,11 @@ Start the dev server,
 ```bash
 $ yarn start
 ```
-=======
 # demo-umi-quickstart
-demo-umi-quickstart
->>>>>>> f7a4e58e82aca569881aa186af550718c2ebc5e4
+##### 2. `A` "counter" component
+
+![image-20201103175713106](C:\Users\chenh\AppData\Roaming\Typora\typora-user-images\image-20201103175713106.png)
+
+##### 2. `A` "to do list" component
+
+![image-20201103175650383](C:\Users\chenh\AppData\Roaming\Typora\typora-user-images\image-20201103175650383.png)
