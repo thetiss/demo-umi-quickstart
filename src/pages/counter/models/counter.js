@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-02 18:09:14 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-03 10:57:43
+ * @Last Modified time: 2020-11-03 11:13:49
  */
 export default {
     namespace: 'counter', // 默认与文件名相同
@@ -12,7 +12,6 @@ export default {
     },
     reducers: { // 同步，唯一可更改state值的地方
         save( state ) {
-            console.log(state.count);
             return {
                 ...state,
             }
