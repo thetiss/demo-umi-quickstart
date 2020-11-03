@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-02 18:09:14 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-02 19:17:05
+ * @Last Modified time: 2020-11-03 10:57:43
  */
 export default {
     namespace: 'counter', // 默认与文件名相同
@@ -11,25 +11,31 @@ export default {
         history: []
     },
     reducers: { // 同步，唯一可更改state值的地方
-        save(state) {
-            console.log("*********excuting reducers-save*********");
+        save( state ) {
             console.log(state.count);
             return {
                 ...state,
             }
         },
-        add(state) {
-            const newCount = state.count+1;
+        increase( state, action ) {
+            // 若action.payload为空，则保持initial state count
+            const newCount = action.payload === null ? state.count : state.count+action.payload.val;
             return {
                 ...state,
                 count: newCount,
             }
         },
+        decrease( state, action ){
+            const newCount = action.payload === null ? state.count : state.count-action.payload.val;
+            return {
+                ...state,
+                count: newCount
+            }
+        },
     },
     effects: { // 异步
-        *fetch(action,{ put, call }){
+        *fetch( action, { put, call }){
             // yield call(delay,3000);
-            console.log("*********excuting effects*********");
             yield put({ type: 'save'});
         }
     },
