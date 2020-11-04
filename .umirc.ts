@@ -5,10 +5,10 @@ export default defineConfig({
     type: 'none',
   },
   /*新增layout、antd、dva */
-  layout:{ // 默认为 Ant Design 的 Layout @ant-design/pro-layout
-    name: 'Ant Design', // 产品名，默认值为包名。
-    locale: true, // 是否开始国际化配置。
-  },
+  // layout:{ // 默认为 Ant Design 的 Layout @ant-design/pro-layout
+  //   name: 'Ant Design', // 产品名，默认值为包名。
+  //   locale: true, // 是否开始国际化配置。
+  // },
   antd: { // 内置 antd，目前内置版本是 ^4.0.0
     dark: false, // 开启暗色主题。
     compact: true, // 开启紧凑主题。
