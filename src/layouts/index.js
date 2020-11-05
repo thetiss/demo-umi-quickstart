@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-04 15:58:03
+ * @Last Modified time: 2020-11-05 10:51:08
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -10,7 +10,8 @@ import { Layout, Menu, } from 'antd'
 import {
     PlusSquareOutlined,
     CalculatorOutlined ,
-    FileDoneOutlined
+    FileDoneOutlined,
+    ZhihuOutlined
     } from '@ant-design/icons';
 import { PageHeaderWrapper } from '@ant-design/pro-layout'
 import Header from './Header'
@@ -39,7 +40,7 @@ const BasicLayout = (props) => {
     const { Header, Sider, Content, Footer } = Layout;
     const { SubMenu } = Menu;
     const setPageTitle = () => {
-        return 'umi quickstart';
+        return 'Hiyan umi';
     }
     return(
         // 
@@ -59,6 +60,11 @@ const BasicLayout = (props) => {
                                 <span>备忘录</span>
                                 <Link to="/todolist"></Link>
                             </Menu.Item>                        
+                            <Menu.Item key="basic">
+                                <ZhihuOutlined />
+                                <span>查漏补缺</span>
+                                <Link to="/basic"></Link>
+                            </Menu.Item>    
                         </SubMenu>
                     </Menu>
                 </Sider>
