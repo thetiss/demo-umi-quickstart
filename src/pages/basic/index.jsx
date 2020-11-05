@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-05 09:55:08 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-05 14:53:08
+ * @Last Modified time: 2020-11-05 16:01:19
  */
 import React, { useState } from 'react';
  import { Card, Row, Col, Tree,  } from 'antd'
@@ -101,7 +101,7 @@ import React, { useState } from 'react';
                 </Col>
                 <Col span={8}>
                     <Card  title="" extra={<a href="https://www.yuque.com/ant-design/course/goozth">Ref</a>} style={{ width: 300 }}>
-                        <h5>通过tree</h5>
+                        <h5>to be contine……</h5>
                     </Card>   
                 </Col>
             </Row> 

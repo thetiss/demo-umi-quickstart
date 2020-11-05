@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-05 10:51:08
+ * @Last Modified time: 2020-11-05 17:13:28
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -43,7 +43,6 @@ const BasicLayout = (props) => {
         return 'Hiyan umi';
     }
     return(
-        // 
         <DocumentTitle title={setPageTitle()}>
             <Layout>
                 <Sider width={256} style={{ minHeight: '100vh', color: 'white' }}>
@@ -65,6 +64,23 @@ const BasicLayout = (props) => {
                                 <span>查漏补缺</span>
                                 <Link to="/basic"></Link>
                             </Menu.Item>    
+                        </SubMenu>
+                        <SubMenu title="Dva Usage" icon={<PlusSquareOutlined />}>
+                            <Menu.Item key="card">
+                                <CalculatorOutlined />
+                                <span>卡片</span>
+                                <Link to="/card"></Link>
+                            </Menu.Item>
+                            {/* <Menu.Item key="todolist">
+                                <FileDoneOutlined />
+                                <span>备忘录</span>
+                                <Link to="/todolist"></Link>
+                            </Menu.Item>                        
+                            <Menu.Item key="basic">
+                                <ZhihuOutlined />
+                                <span>查漏补缺</span>
+                                <Link to="/basic"></Link>
+                            </Menu.Item>     */}
                         </SubMenu>
                     </Menu>
                 </Sider>
