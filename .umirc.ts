@@ -20,4 +20,11 @@ export default defineConfig({
   // routes: [
   //   { path: '/', component: '@/pages/index' },
   // ],
+  proxy: { //http://localhost:8000/save/films可检验配置是否生效
+    '/save': {
+      target: "https://ghibliapi.herokuapp.com/",
+      changeOrigin: true, // 开启跨域代理
+      pathRewrite: { "^/save" : "" }
+    },
+  },
 });
