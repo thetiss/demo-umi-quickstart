@@ -20,11 +20,48 @@ export default defineConfig({
   // routes: [
   //   { path: '/', component: '@/pages/index' },
   // ],
+  routes: [
+    {
+        path: '/',
+        component: '../layouts', // 相对于pages的路径
+        routes: [
+            {
+                path: '/counter',
+                component: './counter'
+            },
+            {
+                path: '/todolist',
+                component: './todolist'
+            },
+            {
+                path: '/basic',
+                component: './basic'
+            },
+            {
+                path: '/card',
+                component: './card'
+            },
+            {
+                path: '/users',
+                component: './users'
+            },
+            {
+                path: '/user',
+                component: './user'
+            }
+        ]
+    }
+],
   proxy: { //http://localhost:8000/save/films可检验配置是否生效
     '/save': {
       target: "https://ghibliapi.herokuapp.com/",
       changeOrigin: true, // 开启跨域代理
       pathRewrite: { "^/save" : "" }
+    },
+    '/use': {
+      target: "http://public-api-v1.aspirantzhang.com/",
+      changeOrigin: true, // 开启跨域代理
+      pathRewrite: { "^/use" : "" }
     },
   },
 });

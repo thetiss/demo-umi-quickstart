@@ -18,7 +18,7 @@ export default {
         const newCardList = initCardList.concat(newCard);
         return{
           ...state,
-          initCardList: newCardList
+          initCardList: newCardList,
         }
       }
     },

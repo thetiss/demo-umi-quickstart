@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-05 17:13:28
+ * @Last Modified time: 2020-11-10 17:33:06
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -71,17 +71,18 @@ const BasicLayout = (props) => {
                                 <span>卡片</span>
                                 <Link to="/card"></Link>
                             </Menu.Item>
-                            {/* <Menu.Item key="todolist">
-                                <FileDoneOutlined />
-                                <span>备忘录</span>
-                                <Link to="/todolist"></Link>
-                            </Menu.Item>                        
-                            <Menu.Item key="basic">
-                                <ZhihuOutlined />
-                                <span>查漏补缺</span>
-                                <Link to="/basic"></Link>
-                            </Menu.Item>     */}
                         </SubMenu>
+                        <SubMenu title="练手demo" icon={<PlusSquareOutlined />}>
+                            <Menu.Item key="users">
+                                <CalculatorOutlined />
+                                <span>用户管理</span>
+                                <Link to="/users"></Link>
+                            </Menu.Item>
+                            <Menu.Item key="user">
+                                <CalculatorOutlined />
+                                <span>用户</span>
+                                <Link to="/user"></Link>
+                            </Menu.Item>                        </SubMenu>                    
                     </Menu>
                 </Sider>
                 <Layout>
