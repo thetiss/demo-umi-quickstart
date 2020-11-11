@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-10 17:33:06
+ * @Last Modified time: 2020-11-11 09:27:57
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -52,7 +52,7 @@ const BasicLayout = (props) => {
                             <Menu.Item key="counter">
                                 <CalculatorOutlined />
                                 <span>计算器</span>
-                                <Link to="/counter"></Link>
+                                <Link to="/users"></Link>
                             </Menu.Item>
                             <Menu.Item key="todolist">
                                 <FileDoneOutlined />
@@ -73,16 +73,12 @@ const BasicLayout = (props) => {
                             </Menu.Item>
                         </SubMenu>
                         <SubMenu title="练手demo" icon={<PlusSquareOutlined />}>
-                            <Menu.Item key="users">
+                            <Menu.Item key="employee">
                                 <CalculatorOutlined />
                                 <span>用户管理</span>
-                                <Link to="/users"></Link>
+                                <Link to="/employee"></Link>
                             </Menu.Item>
-                            <Menu.Item key="user">
-                                <CalculatorOutlined />
-                                <span>用户</span>
-                                <Link to="/user"></Link>
-                            </Menu.Item>                        </SubMenu>                    
+                       </SubMenu>                    
                     </Menu>
                 </Sider>
                 <Layout>

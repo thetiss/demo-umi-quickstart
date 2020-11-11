@@ -29,17 +29,4 @@ export default {
             }
         }
     },
-    subscriptions: {
-        setup( {history, dispatch}){
-            return history.listen(({ pathname }) => {
-                if(pathname === '/users'){
-                    console.log("in users sub");
-                    dispatch({
-                        type: 'fetch',
-                    })
-                }
-
-            })
-        }
-    }
 }

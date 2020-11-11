@@ -42,12 +42,8 @@ export default defineConfig({
                 component: './card'
             },
             {
-                path: '/users',
+                path: '/employee',
                 component: './users'
-            },
-            {
-                path: '/user',
-                component: './user'
             }
         ]
     }
