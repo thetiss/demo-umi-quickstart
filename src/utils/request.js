@@ -5,6 +5,8 @@ function checkStatus(response) {
   console.log("response.status",response.status);
   if (response.status >= 200 && response.status < 300) {
     console.log("200");
+    // console.log("response",response);
+    // console.log("response json",response.json());
     return response;
   }
 
@@ -44,11 +46,23 @@ export default async function request(url, options) {
   console.log("response",response);
   checkStatus(response);
   console.log(checkStatus(response));
-  const data = await response.json();
+  let data = null;
+  if(response.status === 204){
+     data = await response.text(); 
+   }else{
+     data = await response.json();
+   }
+    
+  // const data = await response.json();
+  console.log("****************************in /util/request,the data is",data);
   const result = {
     data,
     headers: {},
   };
+  console.log("**********=without x-total-count result=*************");
+  console.log(result);
+  console.log(result.data);// 返回{data:[],meta:{}} 与demo的result一样。
+  console.log(result.headers);
   if(response.headers.get('x-total-count')) {
     result.headers['x-total-count'] = response.headers.get('x-total-count');
     console.log("**********=result=*************");

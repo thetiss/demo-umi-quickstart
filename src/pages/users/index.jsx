@@ -2,14 +2,14 @@
  * @Author: hiyan 
  * @Date: 2020-11-10 12:56:18 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-16 17:40:25
+ * @Last Modified time: 2020-11-17 18:07:40
  */
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'dva'
-import { Button, Popconfirm, } from 'antd'
+import { Button, Popconfirm, message} from 'antd'
 import ProTable  from '@ant-design/pro-table';
 import { PlusOutlined } from '@ant-design/icons';
-import * as userService from './services/users'
+import { addRecord, editRecord, } from './services/users'
 import UserModalForm from './components/UserModal'
 
 const namespace = 'users';
@@ -23,11 +23,10 @@ const mapDispatchToProps = dispatch => {
     renderTableList: ()=>{
       dispatch({
         type:`${namespace}/fetch`,
-        //payload: { val: params }
       })
     },
     onCreate:  (values) => {
-      console.log("2 Received values of form ",values);
+           
       values && dispatch({
         type: `${namespace}/addUser`,
         payload: { val: values}
@@ -47,13 +46,35 @@ const UserListPage = (props) => {
   const tableRef = useRef();  
   const [visible,setVisible] = useState(false);
   const [isEdit,setIsEdit] = useState(false);
+  const [record,setRecord] = useState(null);
+  
+  const onFinished = async (values) => {
+    let id = 0; 
+    if(record)
+    id = record.id;
+    let serviceFunc = null;
+    if(id){
+      serviceFunc = editRecord;
+    }else{
+      serviceFunc = addRecord;
+    }
+    const result = await serviceFunc({id,values});
+    console.log("异步",result);
+    if(result){
+      setVisible(false);
+      message.success(`${id !== 0 ? 'Edit' : 'ADD'} Successfully!`);
+    }else{
+      message.error(`${id !== 0 ? 'Edit' : 'ADD'} Failed!`);
+    }
+  }
   const handleAddUser = () => {
-    setVisible(true);    
+    setVisible(true);
+    setRecord(null);    
   }
   const handleEditUser = (record) => {
     setVisible(true);
-    setIsEdit(true);
-
+    console.log("handleEditUser",JSON.stringify(record));
+    setRecord(record);
   }
   const handleCloseUserModal = () => {
     setVisible(false)
@@ -85,19 +106,13 @@ const UserListPage = (props) => {
       title: '操作',
       valueType: 'option',
       render: (text, row, _, action) => [
-          <a  key="edit">
+          <a  key="edit" onClick={()=>handleEditUser(row)}>
             编辑
           </a>,
           <Popconfirm 
-            title="确定删除?"
+            title={"确定删除?"+row.id}
             onConfirm={() => {  
                                 handleDeleteUser(row.id);
-                                if(tableRef){
-                                  console.log("Delete operation tableRef",tableRef);
-                                  tableRef.current.reload();
-                                }else{
-                                  console.log("Delete operation,no tableRef");
-                                }
                               }}
             okText="确定"
             cancelText="取消"
@@ -123,14 +138,13 @@ const UserListPage = (props) => {
                                                     key="add"
                                                   >新增User
                                                   </Button>
-                                                ]}
+                                               ]}
                       />}
                       <UserModalForm 
-                        visible={visible} 
-                        isEdit={isEdit} 
+                        visible={visible}                        
                         onCancel={handleCloseUserModal}
-                        onCreate={onCreate}
-                        tableRef={tableRef}
+                        onCreate={onFinished}
+                        record={record}
                       />
     </div>
   )

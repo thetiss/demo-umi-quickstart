@@ -2,12 +2,15 @@
  * @Author: hiyan 
  * @Date: 2020-11-11 10:38:46 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-16 17:10:31
+ * @Last Modified time: 2020-11-17 17:51:29
  */
+import { useEffect, } from 'react'
 import { Form, Modal, Input, DatePicker, Switch } from 'antd'
 import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { check } from 'prettier';
+import moment from 'moment';
+
 
 const layout = {
     labelCol: { span: 8 },
@@ -17,13 +20,26 @@ const onChange = (value, dateString) => {
     console.log(value);
     console.log(dateString);
 }
-const UserModal = ({ visible, isEdit, onCancel, onCreate, tableRef, }) => {
+const UserModal = ({ visible, record, onCancel, onCreate, }) => {
     const [ form ] = Form.useForm();
+    useEffect(()=>{
+        if(record === null){
+            form.resetFields();
+        }else{
+            // console.log("in modal: ",JSON.stringify(record));
+            form.setFieldsValue({                
+                ...record,
+                create_time: moment(record.create_time),
+                status: Boolean(record.status)
+            });
+            //form.resetFields();
+        }
+    },[visible])
     return(
         <div>
             <Modal
                 visible={visible}
-                title={isEdit?'编辑用户':'新增用户'}
+                title={visible?'编辑用户':'新增用户'}
                 okText="确定"
                 cancelText="取消"
                 onCancel={onCancel}
@@ -31,11 +47,9 @@ const UserModal = ({ visible, isEdit, onCancel, onCreate, tableRef, }) => {
                 onOk={() => {
                     form.validateFields() // form instance的API方法之一：触发表单验证	
                         .then((values) => {                            
-                            form.resetFields(); // 之一：重置一组字段到 initialValues
+                            //form.resetFields(); // 之一：重置一组字段到 initialValues
                             onCreate(values);
-                            tableRef.current.reload();
-                            // validateFields values:  {username: "1", email: "1", createTime: Moment, status: true}
-                            console.log("1 validateFields values: ",values);
+                            form.resetFields();
                         })
                         .catch((errorInfo) => {
                             console.log("validateFields failed: ",errorInfo);
