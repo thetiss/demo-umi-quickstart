@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-11 10:38:46 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-17 17:51:29
+ * @Last Modified time: 2020-11-18 15:08:11
  */
 import { useEffect, } from 'react'
 import { Form, Modal, Input, DatePicker, Switch } from 'antd'
@@ -22,17 +22,15 @@ const onChange = (value, dateString) => {
 }
 const UserModal = ({ visible, record, onCancel, onCreate, }) => {
     const [ form ] = Form.useForm();
-    useEffect(()=>{
+    useEffect(() => {
         if(record === null){
             form.resetFields();
         }else{
-            // console.log("in modal: ",JSON.stringify(record));
             form.setFieldsValue({                
                 ...record,
                 create_time: moment(record.create_time),
                 status: Boolean(record.status)
             });
-            //form.resetFields();
         }
     },[visible])
     return(
