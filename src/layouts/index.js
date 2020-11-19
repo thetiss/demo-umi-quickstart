@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-11 09:27:57
+ * @Last Modified time: 2020-11-19 11:14:44
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -79,6 +79,25 @@ const BasicLayout = (props) => {
                                 <Link to="/employee"></Link>
                             </Menu.Item>
                        </SubMenu>                    
+                       <SubMenu title="BizCharts熟悉" icon={<PlusSquareOutlined />}>
+                            <Menu.Item key="LineAdvance">
+                                <CalculatorOutlined />
+                                <span>LineAdvance</span>
+                                <Link to="/bizcharts/lineAdvance"></Link>
+                            </Menu.Item>
+                            <Menu.Item key="Interval">
+                                <CalculatorOutlined />
+                                <span>Interval(e.g. Bar)</span>
+                                <Link to="/bizcharts/bar"></Link>
+                            </Menu.Item>
+                       </SubMenu>
+                       <SubMenu title="应急大屏" icon={<PlusSquareOutlined />}>
+                            <Menu.Item key="datav">
+                                <CalculatorOutlined />
+                                <span>大屏服务</span>
+                                <Link to="/datav"></Link>
+                            </Menu.Item>
+                       </SubMenu> 
                     </Menu>
                 </Sider>
                 <Layout>

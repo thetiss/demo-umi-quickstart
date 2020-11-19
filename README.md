@@ -23,3 +23,8 @@ $ yarn start
 ##### 2. `A` "to do list" component
 
 ![image-20201103175650383](C:\Users\chenh\AppData\Roaming\Typora\typora-user-images\image-20201103175650383.png)
+
+##### 2. `A` "BizCharts" component
+
+![image-20201119145112021](C:\Users\chenh\AppData\Roaming\Typora\typora-user-images\image-20201119145112021.png)
+
