@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-19 11:08:15 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-19 14:49:53
+ * @Last Modified time: 2020-11-19 14:53:17
  */
 import { useState, useEffect } from 'react'
 import { Chart, Interval }  from 'bizcharts'
@@ -13,7 +13,6 @@ const index = () => {
     // 加载后端数据
     useEffect(() => {
         async function fetchData() {
-          //const result = await chartDataService.get7daysOnlineHistory(); // 连续数据，则不留空白
           const result = await chartDataService.get7daysOnlineHistoryByPercent();
           Array.isArray(result) ? setChartData(result) :[];
         }
