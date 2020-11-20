@@ -32,6 +32,10 @@ export default [
               component: './BizCharts',
               routes: [
                 {
+                  path: '/bizcharts/overall',
+                  component: './BizCharts/overall'
+                },                
+                {
                   path: '/bizcharts/lineAdvance',
                   component: './BizCharts/LineAdvance'
                 },

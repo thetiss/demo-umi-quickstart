@@ -2,7 +2,7 @@
  * @Author: hiyan 
  * @Date: 2020-11-04 10:08:33 
  * @Last Modified by: hiyan
- * @Last Modified time: 2020-11-19 11:14:44
+ * @Last Modified time: 2020-11-19 15:28:01
  */
 import DocumentTitle from 'react-document-title'
 import { Link } from 'umi'
@@ -80,6 +80,11 @@ const BasicLayout = (props) => {
                             </Menu.Item>
                        </SubMenu>                    
                        <SubMenu title="BizCharts熟悉" icon={<PlusSquareOutlined />}>
+                            <Menu.Item key="overall">
+                                <CalculatorOutlined />
+                                <span>Overview</span>
+                                <Link to="/bizcharts/overall"></Link>
+                            </Menu.Item>
                             <Menu.Item key="LineAdvance">
                                 <CalculatorOutlined />
                                 <span>LineAdvance</span>
